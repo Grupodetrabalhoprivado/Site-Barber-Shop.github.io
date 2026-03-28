@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barber Shop Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-img-placeholder"></div>
+        <div>
+          <div class="logo-name">Barber Shop</div>
+          <div class="logo-sub">Est. 2018 · Premium</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="btn-cart" onclick="toggleCart()">
+          🛒 Meu Agendamento (<span id="cart-count">0</span>)
+        </button>
+        <button class="btn-login" onclick="document.getElementById('modal').classList.add('show')">
+          ENTRAR
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── CARRINHO FLUTUANTE ── -->
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h3>Meu Agendamento</h3>
+      <button class="cart-close" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-content" id="cart-content">
+      <p class="cart-empty">Nenhum serviço selecionado</p>
+    </div>
+    <div class="cart-footer">
+      <button class="btn-clear-cart" onclick="clearCart()">Limpar Carrinho</button>
+    </div>
+  </div>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#horarios">Horários</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#localizacao">Localização</a></li>
+      <li><a href="#barbeiro">O Barbeiro</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SEÇÃO 1 — SERVIÇOS                         -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <h2 class="section-title">Nossos Serviços</h2>
+      <p class="section-sub">Escolha sua categoria e agende agora</p>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" onclick="openTab(event,'cortes')">Cortes</button>
+        <button class="tab" onclick="openTab(event,'barbas')">Barbas</button>
+        <button class="tab" onclick="openTab(event,'sobrancelhas')">Sobrancelhas</button>
+        <button class="tab" onclick="openTab(event,'bigode')">Bigode</button>
+        <button class="tab" onclick="openTab(event,'pintura')">Pinturas & Tratamentos</button>
+      </div>
+
+      <!-- Painel: Cortes -->
+      <div class="tab-panel active" id="cortes">
+        <div class="carousel-wrapper">
+          <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('carousel-cortes', -1)">❮</button>
+          <div class="carousel" id="carousel-cortes">
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Corte+Clássico" alt="Corte Clássico" class="card-img">
+              </div>
+              <div class="card-name">Corte Clássico</div>
+              <div class="card-price">R$ 45,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('cortes', 'Corte Clássico', 45.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Degradê" alt="Degradê" class="card-img">
+              </div>
+              <div class="card-name">Degradê</div>
+              <div class="card-price">R$ 55,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('cortes', 'Degradê', 55.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Undercut" alt="Undercut" class="card-img">
+              </div>
+              <div class="card-name">Undercut</div>
+              <div class="card-price">R$ 60,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('cortes', 'Undercut', 60.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Fade" alt="Fade" class="card-img">
+              </div>
+              <div class="card-name">Fade</div>
+              <div class="card-price">R$ 50,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('cortes', 'Fade', 50.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+          </div>
+          <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('carousel-cortes', 1)">❯</button>
+        </div>
+      </div>
+
+      <!-- Painel: Barbas -->
+      <div class="tab-panel" id="barbas">
+        <div class="carousel-wrapper">
+          <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('carousel-barbas', -1)">❮</button>
+          <div class="carousel" id="carousel-barbas">
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Barba+Completa" alt="Barba Completa" class="card-img">
+              </div>
+              <div class="card-name">Barba Completa</div>
+              <div class="card-price">R$ 35,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('barbas', 'Barba Completa', 35.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Barba+Design" alt="Barba Design" class="card-img">
+              </div>
+              <div class="card-name">Barba Design</div>
+              <div class="card-price">R$ 40,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('barbas', 'Barba Design', 40.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Barba+Terape%CC%82utica" alt="Barba Terapêutica" class="card-img">
+              </div>
+              <div class="card-name">Barba Terapêutica</div>
+              <div class="card-price">R$ 45,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('barbas', 'Barba Terapêutica', 45.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+          </div>
+          <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('carousel-barbas', 1)">❯</button>
+        </div>
+      </div>
+
+      <!-- Painel: Sobrancelhas -->
+      <div class="tab-panel" id="sobrancelhas">
+        <div class="carousel-wrapper">
+          <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('carousel-sobrancelhas', -1)">❮</button>
+          <div class="carousel" id="carousel-sobrancelhas">
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Sobrancelha+Design" alt="Sobrancelha Design" class="card-img">
+              </div>
+              <div class="card-name">Sobrancelha Design</div>
+              <div class="card-price">R$ 20,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('sobrancelhas', 'Sobrancelha Design', 20.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Sobrancelha+Alinhada" alt="Sobrancelha Alinhada" class="card-img">
+              </div>
+              <div class="card-name">Sobrancelha Alinhada</div>
+              <div class="card-price">R$ 25,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('sobrancelhas', 'Sobrancelha Alinhada', 25.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+          </div>
+          <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('carousel-sobrancelhas', 1)">❯</button>
+        </div>
+      </div>
+
+      <!-- Painel: Bigode -->
+      <div class="tab-panel" id="bigode">
+        <div class="carousel-wrapper">
+          <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('carousel-bigode', -1)">❮</button>
+          <div class="carousel" id="carousel-bigode">
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Bigode+Clássico" alt="Bigode Clássico" class="card-img">
+              </div>
+              <div class="card-name">Bigode Clássico</div>
+              <div class="card-price">R$ 15,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('bigode', 'Bigode Clássico', 15.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Bigode+Design" alt="Bigode Design" class="card-img">
+              </div>
+              <div class="card-name">Bigode Design</div>
+              <div class="card-price">R$ 20,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('bigode', 'Bigode Design', 20.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+          </div>
+          <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('carousel-bigode', 1)">❯</button>
+        </div>
+      </div>
+
+      <!-- Painel: Pinturas & Tratamentos -->
+      <div class="tab-panel" id="pintura">
+        <div class="carousel-wrapper">
+          <button class="carousel-nav-btn carousel-prev" onclick="scrollCarousel('carousel-pintura', -1)">❮</button>
+          <div class="carousel" id="carousel-pintura">
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Pintura+Cabelo" alt="Pintura Cabelo" class="card-img">
+              </div>
+              <div class="card-name">Pintura Cabelo</div>
+              <div class="card-price">R$ 80,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('pintura', 'Pintura Cabelo', 80.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Hidratação" alt="Hidratação" class="card-img">
+              </div>
+              <div class="card-name">Hidratação</div>
+              <div class="card-price">R$ 50,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('pintura', 'Hidratação', 50.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+            <div class="card glass-card">
+              <div class="card-img-container">
+                <img src="https://via.placeholder.com/300x200?text=Alisamento" alt="Alisamento" class="card-img">
+              </div>
+              <div class="card-name">Alisamento</div>
+              <div class="card-price">R$ 70,00</div>
+              <button class="btn-agendar animated-button" onclick="addToCart('pintura', 'Alisamento', 70.00)">
+                <span class="text">Agendar</span>
+                <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <div class="circle"></div>
+              </button>
+            </div>
+          </div>
+          <button class="carousel-nav-btn carousel-next" onclick="scrollCarousel('carousel-pintura', 1)">❯</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SEÇÃO 2 — HORÁRIOS                         -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section section-alt" id="horarios">
+    <div class="container">
+      <h2 class="section-title">Horários</h2>
+      <p class="section-sub">Selecione o melhor momento para você</p>
+
+      <!-- Layout lado a lado: Informações + Agendamento -->
+      <div class="schedule-wrapper">
+        <!-- Coluna Esquerda: Informações do Cliente -->
+        <div class="schedule-left">
+          <div class="client-info-section">
+            <h3 class="client-info-title">Suas Informações</h3>
+            <div class="client-info-form">
+              <input type="text" id="client-name" placeholder="Digite seu nome completo" class="client-input">
+              <input type="email" id="client-email" placeholder="Seu e-mail (opcional)" class="client-input">
+              <input type="tel" id="client-phone" placeholder="Seu telefone (opcional)" class="client-input">
+            </div>
+          </div>
+
+          <!-- Resumo do Agendamento -->
+          <div class="booking-summary" id="booking-summary" style="display:none;">
+            <h3>Resumo do Seu Agendamento</h3>
+            <div class="summary-item">
+              <span class="summary-label">Nome:</span>
+              <span class="summary-value" id="summary-name">-</span>
+            </div>
+            <div id="summary-services-list"></div>
+            <div class="summary-item">
+              <span class="summary-label">Data:</span>
+              <span class="summary-value" id="summary-date">-</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Horário:</span>
+              <span class="summary-value" id="summary-time">-</span>
+            </div>
+            <div class="summary-item" style="border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 15px; margin-top: 15px;">
+              <span class="summary-label">Valor Total:</span>
+              <span class="summary-value" id="summary-price">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Seleção de Horários -->
+        <div class="schedule-right">
+          <!-- Dias -->
+          <div class="days-row">
+            <button class="day-btn active" onclick="selectDay(this, 'seg')">SEG</button>
+            <button class="day-btn" onclick="selectDay(this, 'ter')">TER</button>
+            <button class="day-btn" onclick="selectDay(this, 'qua')">QUA</button>
+            <button class="day-btn" onclick="selectDay(this, 'qui')">QUI</button>
+            <button class="day-btn" onclick="selectDay(this, 'sex')">SEX</button>
+            <button class="day-btn" onclick="selectDay(this, 'sab')">SÁB</button>
+          </div>
+
+          <!-- Legenda -->
+          <div class="legend">
+            <span class="leg available">Disponível</span>
+            <span class="leg occupied">Ocupado</span>
+            <span class="leg selected">Selecionado</span>
+          </div>
+
+          <!-- Grid de horários -->
+          <div class="time-grid" id="time-grid"></div>
+        </div>
+      </div>
+
+      <button class="btn-confirm animated-button" id="btn-confirm" disabled onclick="confirmSchedule()" style="margin-top: 30px;">
+        <span class="text">CONFIRMAR NO WHATSAPP</span>
+        <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="circle"></div>
+      </button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SEÇÃO 3 — GALERIA                          -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section" id="galeria">
+    <div class="container">
+      <h2 class="section-title">Galeria</h2>
+      <p class="section-sub">Nossos melhores trabalhos</p>
+
+      <div class="gallery-carousel-wrapper">
+        <div class="gallery-carousel" id="gallery-carousel">
+          <div class="gallery-card">
+            <img src="https://via.placeholder.com/400x400?text=Trabalho+1" alt="Galeria 1" class="gallery-img-real">
+            <div class="gallery-label">Degradê Moderno</div>
+          </div>
+          <div class="gallery-card">
+            <img src="https://via.placeholder.com/400x400?text=Trabalho+2" alt="Galeria 2" class="gallery-img-real">
+            <div class="gallery-label">Barba Alinhada</div>
+          </div>
+          <div class="gallery-card">
+            <img src="https://via.placeholder.com/400x400?text=Trabalho+3" alt="Galeria 3" class="gallery-img-real">
+            <div class="gallery-label">Corte Clássico</div>
+          </div>
+          <div class="gallery-card">
+            <img src="https://via.placeholder.com/400x400?text=Trabalho+4" alt="Galeria 4" class="gallery-img-real">
+            <div class="gallery-label">Navalhado</div>
+          </div>
+        </div>
+        <button class="gallery-nav-btn gallery-prev" onclick="scrollGallery(-1)">❮</button>
+        <button class="gallery-nav-btn gallery-next" onclick="scrollGallery(1)">❯</button>
+      </div>
+
+      <p class="gallery-note">
+        O administrador pode atualizar estas fotos através do painel de controle.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SEÇÃO 4 — LOCALIZAÇÃO                      -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section section-alt" id="localizacao">
+    <div class="container">
+      <h2 class="section-title">Localização</h2>
+      <p class="section-sub">Venha nos visitar</p>
+
+      <div class="location-wrapper">
+        <div class="location-info">
+          <div class="info-item">
+            <div class="info-icon-placeholder">📍</div>
+            <div>
+              <div class="info-label">Endereço</div>
+              <div class="info-value">Rua Exemplo, 123 — Centro<br>São Paulo, SP</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon-placeholder">📞</div>
+            <div>
+              <div class="info-label">Telefone</div>
+              <div class="info-value">(11) 99999-9999</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon-placeholder">🕐</div>
+            <div>
+              <div class="info-label">Horário de Funcionamento</div>
+              <div class="info-value">
+                Seg – Sex: 09h às 20h<br>
+                Sábado: 09h às 18h<br>
+                Domingo: Fechado
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="map-container">
+          <div class="map-placeholder">
+            <p>🗺️ Mapa</p>
+            <p style="font-size: 14px;">Integre um mapa aqui (Google Maps, Leaflet, etc.)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SEÇÃO 5 — O BARBEIRO                       -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="section" id="barbeiro">
+    <div class="container">
+      <h2 class="section-title">O Barbeiro</h2>
+      <p class="section-sub">Excelência em cada detalhe</p>
+
+      <div class="barber-card">
+        <div class="barber-photo-container glass-card">
+          <img src="https://via.placeholder.com/200x200?text=Barbeiro" alt="João Silva" class="barber-img">
+        </div>
+        <div class="barber-content">
+          <div class="barber-name">João Silva</div>
+          <div class="barber-title">Master Barber & Fundador</div>
+          <p class="barber-bio">
+            Com mais de 10 anos de experiência, João é especialista em cortes clássicos e modernos.
+            Formado pela Escola Nacional de Barbearia, já atendeu mais de 5.000 clientes e
+            participou de competições nacionais de barbeiros. Seu compromisso é entregar
+            precisão e estilo em cada atendimento.
+          </p>
+          <div class="barber-stats">
+            <div class="stat">
+              <span class="stat-num">10+</span>
+              <span class="stat-label">Anos de exp.</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5k+</span>
+              <span class="stat-label">Clientes</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">4.9</span>
+              <span class="stat-label">Avaliação</span>
+            </div>
+          </div>
+          <div class="social-section">
+            <a href="https://wa.me/5511999999999" target="_blank" class="social-link" title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/barbershoppremium" target="_blank" class="social-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-text">
+        © 2026 BARBER SHOP PREMIUM — TODOS OS DIREITOS RESERVADOS
+      </div>
+      <div class="footer-social">
+        <a href="https://wa.me/5511999999999" target="_blank" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/barbershoppremium" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── MODAL DE LOGIN ── -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')">×</button>
+      <div class="modal-title">Acesso Administrativo</div>
+      <input class="modal-input" type="email" placeholder="E-mail" />
+      <input class="modal-input" type="password" placeholder="Senha" />
+      <button class="modal-btn">ACESSAR PAINEL</button>
+    </div>
+  </div>
+
+  <!-- ── TOAST ── -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ── SCRIPTS ── -->
+  <script>
+    // ── CARRINHO DE AGENDAMENTO MULTI-SERVIÇO ──
+    let cart = {
+      services: {
+        cortes: null,
+        barbas: null,
+        sobrancelhas: null,
+        bigode: null,
+        pintura: null
+      },
+      clientName: "",
+      clientEmail: "",
+      clientPhone: "",
+      selectedDay: null,
+      selectedTime: null
+    };
+
+    function toggleCart() {
+      const sidebar = document.getElementById('cart-sidebar');
+      sidebar.classList.toggle('show');
+    }
+
+    function addToCart(category, serviceName, price) {
+      // Se já existe um serviço nesta categoria, substitui
+      if (cart.services[category]) {
+        showToast(`${cart.services[category].name} foi substituído por ${serviceName}!`);
+      } else {
+        showToast(`${serviceName} adicionado ao carrinho!`);
+      }
+      
+      cart.services[category] = { name: serviceName, price: price };
+      updateCartDisplay();
+      updateCartCount();
+    }
+
+    function updateCartCount() {
+      const count = Object.values(cart.services).filter(s => s !== null).length;
+      document.getElementById('cart-count').textContent = count;
+    }
+
+    function updateCartDisplay() {
+      const cartContent = document.getElementById('cart-content');
+      const services = Object.values(cart.services).filter(s => s !== null);
+      
+      if (services.length === 0) {
+        cartContent.innerHTML = '<p class="cart-empty">Nenhum serviço selecionado</p>';
+        return;
+      }
+
+      let html = '';
+      services.forEach(service => {
+        html += `
+          <div class="cart-item">
+            <div class="cart-item-name">${service.name}</div>
+            <div class="cart-item-price">R$ ${service.price.toFixed(2).replace(".", ",")}</div>
+          </div>
+        `;
+      });
+
+      cartContent.innerHTML = html;
+    }
+
+    function clearCart() {
+      cart.services = {
+        cortes: null,
+        barbas: null,
+        sobrancelhas: null,
+        bigode: null,
+        pintura: null
+      };
+      document.getElementById('cart-count').textContent = '0';
+      updateCartDisplay();
+      document.getElementById('booking-summary').style.display = 'none';
+      showToast('Carrinho limpo!');
+    }
+
+    // ── TABS ──
+    function openTab(e, id) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      e.currentTarget.classList.add('active');
+    }
+
+    // ── CARROSSEL ──
+    function scrollCarousel(id, dir) {
+      const el = document.getElementById(id);
+      el.scrollBy({ left: dir * 320, behavior: 'smooth' });
+    }
+
+    // ── HORÁRIOS ──
+    const schedules = {
+      seg: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'],
+      ter: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'],
+      qua: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'],
+      qui: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'],
+      sex: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'],
+      sab: ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+    };
+
+    const occupied = {
+      seg: ['10:00','13:00','15:00'],
+      ter: ['09:00','11:00','14:00'],
+      qua: ['12:00','16:00'],
+      qui: ['10:00','13:00','17:00'],
+      sex: ['09:00','14:00','18:00'],
+      sab: ['10:00','12:00'],
+    };
+
+    let selectedDay  = 'seg';
+    let selectedTime = null;
+
+    function buildGrid(day) {
+      const grid = document.getElementById('time-grid');
+      grid.innerHTML = '';
+      selectedTime = null;
+      document.getElementById('btn-confirm').disabled = true;
+
+      (schedules[day] || []).forEach(time => {
+        const isOccupied = (occupied[day] || []).includes(time);
+        const slot = document.createElement('div');
+        slot.className = 'time-slot ' + (isOccupied ? 'occupied' : 'available');
+        slot.textContent = time;
+        if (!isOccupied) {
+          slot.onclick = () => selectTime(slot, time, day);
+        }
+        grid.appendChild(slot);
+      });
+    }
+
+    function selectDay(btn, day) {
+      document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedDay = day;
+      cart.selectedDay = day;
+      buildGrid(day);
+    }
+
+    function selectTime(slot, time, day) {
+      document.querySelectorAll('.time-slot.available, .time-slot.selected').forEach(s => {
+        s.classList.remove('selected');
+        s.classList.add('available');
+      });
+      slot.classList.remove('available');
+      slot.classList.add('selected');
+      selectedTime = time;
+      cart.selectedTime = time;
+      document.getElementById('btn-confirm').disabled = false;
+      updateBookingSummary();
+    }
+
+    function updateBookingSummary() {
+      const clientName = document.getElementById('client-name').value || 'Não informado';
+      const dayMap = { seg: 'Segunda', ter: 'Terça', qua: 'Quarta', qui: 'Quinta', sex: 'Sexta', sab: 'Sábado' };
+      const services = Object.values(cart.services).filter(s => s !== null);
+
+      document.getElementById('summary-name').textContent = clientName;
+      
+      // Gerar lista de serviços
+      let servicesHtml = '';
+      services.forEach(service => {
+        servicesHtml += `
+          <div class="summary-item">
+            <span class="summary-label">${service.name}:</span>
+            <span class="summary-value">R$ ${service.price.toFixed(2).replace(".", ",")}</span>
+          </div>
+        `;
+      });
+      document.getElementById('summary-services-list').innerHTML = servicesHtml;
+
+      document.getElementById('summary-date').textContent = dayMap[selectedDay] || '-';
+      document.getElementById('summary-time').textContent = selectedTime || '-';
+      
+      // Calcular valor total
+      const totalPrice = services.reduce((sum, s) => sum + s.price, 0);
+      document.getElementById('summary-price').textContent = `R$ ${totalPrice.toFixed(2).replace(".", ",")}`;
+      
+      document.getElementById('booking-summary').style.display = 'block';
+    }
+
+    function confirmSchedule() {
+      const clientName = document.getElementById('client-name').value;
+      if (!clientName) {
+        showToast('Por favor, digite seu nome!');
+        return;
+      }
+
+      const services = Object.values(cart.services).filter(s => s !== null);
+      if (services.length === 0) {
+        showToast('Por favor, selecione pelo menos um serviço!');
+        return;
+      }
+
+      cart.clientName = clientName;
+      cart.clientEmail = document.getElementById('client-email').value;
+      cart.clientPhone = document.getElementById('client-phone').value;
+
+      const dayMap = { seg: 'Segunda', ter: 'Terça', qua: 'Quarta', qui: 'Quinta', sex: 'Sexta', sab: 'Sábado' };
+      const phone = "5511999999999";
+      
+      let servicesText = '';
+      let totalPrice = 0;
+      services.forEach(service => {
+        servicesText += `\n• ${service.name}: R$ ${service.price.toFixed(2).replace(".", ",")}`;
+        totalPrice += service.price;
+      });
+
+      const message = encodeURIComponent(
+        `Olá! Gostaria de agendar um serviço.\n\n` +
+        `*Cliente:* ${clientName}\n` +
+        `*Serviços:*${servicesText}\n` +
+        `*Data:* ${dayMap[selectedDay]}\n` +
+        `*Horário:* ${selectedTime}\n` +
+        `*Valor Total:* R$ ${totalPrice.toFixed(2).replace(".", ",")}`
+      );
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+
+      showToast(`Redirecionando para o WhatsApp...`);
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        clearCart();
+      }, 1000);
+    }
+
+    // ── TOAST ──
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // ── CARROSSEL DA GALERIA ──
+    let galleryAutoPlayInterval;
+    const galleryCarousel = document.getElementById('gallery-carousel');
+
+    function scrollGallery(direction) {
+      const carousel = document.getElementById('gallery-carousel');
+      const scrollAmount = 350;
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+      stopGalleryAutoPlay();
+    }
+
+    function startGalleryAutoPlay() {
+      galleryAutoPlayInterval = setInterval(() => {
+        if (galleryCarousel) {
+          if (galleryCarousel.scrollLeft + galleryCarousel.clientWidth >= galleryCarousel.scrollWidth - 10) {
+            galleryCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            galleryCarousel.scrollBy({ left: 350, behavior: 'smooth' });
+          }
+        }
+      }, 4000);
+    }
+
+    function stopGalleryAutoPlay() {
+      clearInterval(galleryAutoPlayInterval);
+      setTimeout(startGalleryAutoPlay, 10000);
+    }
+
+    if (galleryCarousel) {
+      galleryCarousel.addEventListener('wheel', stopGalleryAutoPlay);
+      galleryCarousel.addEventListener('touchstart', stopGalleryAutoPlay);
+    }
+
+    // Inicializa o grid
+    buildGrid('seg');
+    startGalleryAutoPlay();
+  </script>
+</body>
+</html>

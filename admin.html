@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Barber Shop Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="admin-header-inner">
+            <div class="logo">
+                <div class="logo-placeholder"></div>
+                <div>
+                    <div class="logo-name">Painel Admin</div>
+                    <div class="logo-sub">Barber Shop Premium</div>
+                </div>
+            </div>
+            <button class="btn-logout" onclick="alert('Sair do painel')">SAIR</button>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="admin-wrapper">
+        <aside class="admin-sidebar">
+            <nav class="admin-nav">
+                <a href="#" class="nav-item active" onclick="showSection(event, 'dashboard')">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showSection(event, 'servicos')">
+                    <span class="nav-icon">✂️</span>
+                    <span class="nav-text">Serviços</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showSection(event, 'galeria')">
+                    <span class="nav-icon">🖼️</span>
+                    <span class="nav-text">Galeria</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showSection(event, 'barbeiro')">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Barbeiro</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showSection(event, 'configuracoes')">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Configurações</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <!-- Dashboard -->
+            <section id="dashboard" class="admin-section active">
+                <div class="section-header">
+                    <h2>Dashboard</h2>
+                    <p>Bem-vindo ao painel administrativo da Barber Shop Premium</p>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-icon">📅</div>
+                        <div class="card-content">
+                            <div class="card-value">12</div>
+                            <div class="card-label">Agendamentos Hoje</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">💰</div>
+                        <div class="card-content">
+                            <div class="card-value">R$ 850</div>
+                            <div class="card-label">Faturamento Hoje</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">⭐</div>
+                        <div class="card-content">
+                            <div class="card-value">4.9</div>
+                            <div class="card-label">Avaliação Média</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">👥</div>
+                        <div class="card-content">
+                            <div class="card-value">5k+</div>
+                            <div class="card-label">Clientes Totais</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Serviços -->
+            <section id="servicos" class="admin-section">
+                <div class="section-header">
+                    <h2>Gerenciar Serviços</h2>
+                    <p>Adicione, edite ou remova serviços oferecidos</p>
+                </div>
+                <button class="btn-add" onclick="openServiceModal()">+ Adicionar Novo Serviço</button>
+                <div class="admin-services-grid" id="service-list"></div>
+            </section>
+
+            <!-- Galeria -->
+            <section id="galeria" class="admin-section">
+                <div class="section-header">
+                    <h2>Gerenciar Galeria</h2>
+                    <p>Faça upload e organize as fotos dos seus trabalhos</p>
+                </div>
+                <button class="btn-add" onclick="openGalleryModal()">+ Adicionar Nova Imagem</button>
+                <div class="admin-gallery-grid" id="gallery-list"></div>
+            </section>
+
+            <!-- Barbeiro -->
+            <section id="barbeiro" class="admin-section">
+                <div class="section-header">
+                    <h2>Gerenciar Barbeiro</h2>
+                    <p>Atualize as informações do perfil do barbeiro</p>
+                </div>
+                <form class="admin-form" id="barber-form" onsubmit="saveBarberInfo(event)">
+                    <div class="form-group">
+                        <label>Nome do Barbeiro</label>
+                        <input type="text" id="barber-name" value="João Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Título/Especialidade</label>
+                        <input type="text" id="barber-title" value="Master Barber & Fundador" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Biografia</label>
+                        <textarea id="barber-bio" rows="5" required>Com mais de 10 anos de experiência, João é especialista em cortes clássicos e modernos. Formado pela Escola Nacional de Barbearia, já atendeu mais de 5.000 clientes e participou de competições nacionais de barbeiros. Seu compromisso é entregar precisão e estilo em cada atendimento.</textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Foto do Barbeiro</label>
+                            <input type="file" id="barber-photo" accept="image/*">
+                            <small>Formatos aceitos: JPG, PNG, GIF (máx. 5MB)</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Preview</label>
+                            <img id="barber-preview" src="https://via.placeholder.com/150x150?text=Foto" alt="Preview" class="image-preview">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Anos de Experiência</label>
+                            <input type="number" id="barber-exp" value="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Clientes Atendidos</label>
+                            <input type="number" id="barber-clients" value="5000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Avaliação (0-5)</label>
+                            <input type="number" id="barber-rating" step="0.1" value="4.9" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-save">Salvar Alterações</button>
+                </form>
+            </section>
+
+            <!-- Configurações -->
+            <section id="configuracoes" class="admin-section">
+                <div class="section-header">
+                    <h2>Configurações Gerais</h2>
+                    <p>Ajustes globais do site</p>
+                </div>
+                
+                <div class="config-tabs">
+                    <button class="config-tab active" onclick="showConfigTab(event, 'info-geral')">Informações Gerais</button>
+                    <button class="config-tab" onclick="showConfigTab(event, 'contato')">Contato & Redes Sociais</button>
+                    <button class="config-tab" onclick="showConfigTab(event, 'horarios')">Horários</button>
+                </div>
+
+                <!-- Informações Gerais -->
+                <div id="info-geral" class="config-content active">
+                    <form class="admin-form" onsubmit="saveGeneralInfo(event)">
+                        <div class="form-group">
+                            <label>Título do Site</label>
+                            <input type="text" value="Barber Shop Premium" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descrição/Tagline</label>
+                            <input type="text" value="Est. 2018 · Premium" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Endereço Completo</label>
+                            <input type="text" value="Rua Exemplo, 123 — Centro, São Paulo, SP" required>
+                        </div>
+                        <button type="submit" class="btn-save">Salvar</button>
+                    </form>
+                </div>
+
+                <!-- Contato & Redes Sociais -->
+                <div id="contato" class="config-content">
+                    <form class="admin-form" onsubmit="saveContactInfo(event)">
+                        <div class="form-group">
+                            <label>Telefone (com DDD)</label>
+                            <input type="tel" value="(11) 99999-9999" placeholder="(XX) XXXXX-XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp (apenas números)</label>
+                            <input type="text" value="5511999999999" placeholder="55XXXXXXXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="email" value="contato@barbershop.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Instagram (usuário)</label>
+                            <input type="text" value="barbershoppremium" placeholder="@usuario" required>
+                        </div>
+                        <button type="submit" class="btn-save">Salvar</button>
+                    </form>
+                </div>
+
+                <!-- Horários -->
+                <div id="horarios" class="config-content">
+                    <form class="admin-form" onsubmit="saveHours(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Segunda a Sexta</label>
+                                <input type="text" value="09h às 20h" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Sábado</label>
+                                <input type="text" value="09h às 18h" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Domingo</label>
+                                <input type="text" value="Fechado" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-save">Salvar</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Serviço -->
+    <div class="admin-modal-overlay" id="service-modal">
+        <div class="admin-modal">
+            <button class="modal-close" onclick="closeServiceModal()">×</button>
+            <h3>Adicionar/Editar Serviço</h3>
+            <form id="service-form" onsubmit="saveService(event)">
+                <input type="hidden" id="service-id">
+                
+                <div class="form-group">
+                    <label>Nome do Serviço</label>
+                    <input type="text" id="service-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Preço (R$)</label>
+                    <input type="number" id="service-price" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select id="service-category" required>
+                        <option value="cortes">Cortes</option>
+                        <option value="barbas">Barbas</option>
+                        <option value="sobrancelhas">Sobrancelhas</option>
+                        <option value="bigode">Bigode</option>
+                        <option value="pintura">Pinturas & Tratamentos</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Imagem do Serviço</label>
+                    <input type="file" id="service-image" accept="image/*" required>
+                    <small>Formatos aceitos: JPG, PNG, GIF (máx. 5MB)</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Preview da Imagem</label>
+                    <img id="service-preview" src="" alt="Preview" class="image-preview" style="display:none;">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-save">Salvar Serviço</button>
+                    <button type="button" class="btn-cancel" onclick="closeServiceModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Galeria -->
+    <div class="admin-modal-overlay" id="gallery-modal">
+        <div class="admin-modal">
+            <button class="modal-close" onclick="closeGalleryModal()">×</button>
+            <h3>Adicionar/Editar Imagem da Galeria</h3>
+            <form id="gallery-form" onsubmit="saveGallery(event)">
+                <input type="hidden" id="gallery-id">
+
+                <div class="form-group">
+                    <label>Imagem do Trabalho</label>
+                    <input type="file" id="gallery-image" accept="image/*" required>
+                    <small>Formatos aceitos: JPG, PNG, GIF (máx. 5MB)</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Preview</label>
+                    <img id="gallery-preview" src="" alt="Preview" class="image-preview" style="display:none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Legenda/Descrição</label>
+                    <input type="text" id="gallery-label" placeholder="Ex: Degradê Moderno" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-save">Salvar Imagem</button>
+                    <button type="button" class="btn-cancel" onclick="closeGalleryModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
