@@ -20,7 +20,7 @@
                     <div class="logo-sub">Barber Shop Premium</div>
                 </div>
             </div>
-            <button class="btn-logout" onclick="alert('Sair do painel')">SAIR</button>
+            <button class="btn-logout" onclick="handleLogout()">SAIR</button>
         </div>
     </header>
 
@@ -318,5 +318,11 @@
     </div>
 
     <script src="admin.js"></script>
+    <script>
+        // Verificar login antes de carregar
+        if (!localStorage.getItem('admin_logged')) {
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
