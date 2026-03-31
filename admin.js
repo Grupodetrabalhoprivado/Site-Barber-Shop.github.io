@@ -330,3 +330,20 @@ document.addEventListener('click', (e) => {
         closeGalleryModal();
     }
 });
+
+// Verificar se está logado
+function checkAuth() {
+    const isLogged = localStorage.getItem('admin_logged');
+    if (!isLogged) {
+        window.location.href = 'index.html';
+    }
+}
+
+// Logout
+function handleLogout() {
+    localStorage.removeItem('admin_logged');
+    window.location.href = 'index.html';
+}
+
+// Verificar auth ao carregar
+checkAuth();
