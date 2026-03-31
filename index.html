@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barber Shop Premium</title>
+  <meta name="description" content="Barber Shop Premium - Cortes clássicos e modernos, barba, sobrancelha e tratamentos. Agende seu horário conosco!" />
+  <meta name="keywords" content="barbearia, corte masculino, barba, degradê, barber shop, São Paulo" />
+  <meta name="author" content="Barber Shop Premium" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Barber Shop Premium" />
+  <meta property="og:description" content="Cortes clássicos e modernos com qualidade premium" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#d4af37" />
+  <link rel="canonical" href="https://seu-usuario.github.io/Site-Barber-Shop/" />
+  <title>Barber Shop Premium | Cortes Premium em São Paulo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -23,10 +32,10 @@
         </div>
       </div>
       <div class="header-right">
-        <button class="btn-cart" onclick="toggleCart()">
+        <button class="btn-cart" onclick="toggleCart()" aria-label="Abrir carrinho de agendamento">
           🛒 Meu Agendamento (<span id="cart-count">0</span>)
         </button>
-        <button class="btn-login" onclick="document.getElementById('modal').classList.add('show')">
+        <button class="btn-login" onclick="document.getElementById('modal').classList.add('show')" aria-label="Abrir painel de login">
           ENTRAR
         </button>
       </div>
@@ -82,7 +91,7 @@
           <div class="carousel" id="carousel-cortes">
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Corte+Clássico" alt="Corte Clássico" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Corte+Clássico" alt="Corte Clássico" class="card-img">
               </div>
               <div class="card-name">Corte Clássico</div>
               <div class="card-price">R$ 45,00</div>
@@ -95,7 +104,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Degradê" alt="Degradê" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Degradê" alt="Degradê" class="card-img">
               </div>
               <div class="card-name">Degradê</div>
               <div class="card-price">R$ 55,00</div>
@@ -108,7 +117,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Undercut" alt="Undercut" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Undercut" alt="Undercut" class="card-img">
               </div>
               <div class="card-name">Undercut</div>
               <div class="card-price">R$ 60,00</div>
@@ -121,7 +130,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Fade" alt="Fade" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Fade" alt="Fade" class="card-img">
               </div>
               <div class="card-name">Fade</div>
               <div class="card-price">R$ 50,00</div>
@@ -144,7 +153,7 @@
           <div class="carousel" id="carousel-barbas">
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Barba+Completa" alt="Barba Completa" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Barba+Completa" alt="Barba Completa" class="card-img">
               </div>
               <div class="card-name">Barba Completa</div>
               <div class="card-price">R$ 35,00</div>
@@ -157,7 +166,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Barba+Design" alt="Barba Design" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Barba+Design" alt="Barba Design" class="card-img">
               </div>
               <div class="card-name">Barba Design</div>
               <div class="card-price">R$ 40,00</div>
@@ -170,7 +179,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Barba+Terape%CC%82utica" alt="Barba Terapêutica" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Barba+Terape%CC%82utica" alt="Barba Terapêutica" class="card-img">
               </div>
               <div class="card-name">Barba Terapêutica</div>
               <div class="card-price">R$ 45,00</div>
@@ -193,7 +202,7 @@
           <div class="carousel" id="carousel-sobrancelhas">
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Sobrancelha+Design" alt="Sobrancelha Design" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Sobrancelha+Design" alt="Sobrancelha Design" class="card-img">
               </div>
               <div class="card-name">Sobrancelha Design</div>
               <div class="card-price">R$ 20,00</div>
@@ -206,7 +215,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Sobrancelha+Alinhada" alt="Sobrancelha Alinhada" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Sobrancelha+Alinhada" alt="Sobrancelha Alinhada" class="card-img">
               </div>
               <div class="card-name">Sobrancelha Alinhada</div>
               <div class="card-price">R$ 25,00</div>
@@ -229,7 +238,7 @@
           <div class="carousel" id="carousel-bigode">
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Bigode+Clássico" alt="Bigode Clássico" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Bigode+Clássico" alt="Bigode Clássico" class="card-img">
               </div>
               <div class="card-name">Bigode Clássico</div>
               <div class="card-price">R$ 15,00</div>
@@ -242,7 +251,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Bigode+Design" alt="Bigode Design" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Bigode+Design" alt="Bigode Design" class="card-img">
               </div>
               <div class="card-name">Bigode Design</div>
               <div class="card-price">R$ 20,00</div>
@@ -265,7 +274,7 @@
           <div class="carousel" id="carousel-pintura">
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Pintura+Cabelo" alt="Pintura Cabelo" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Pintura+Cabelo" alt="Pintura Cabelo" class="card-img">
               </div>
               <div class="card-name">Pintura Cabelo</div>
               <div class="card-price">R$ 80,00</div>
@@ -278,7 +287,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Hidratação" alt="Hidratação" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Hidratação" alt="Hidratação" class="card-img">
               </div>
               <div class="card-name">Hidratação</div>
               <div class="card-price">R$ 50,00</div>
@@ -291,7 +300,7 @@
             </div>
             <div class="card glass-card">
               <div class="card-img-container">
-                <img src="https://via.placeholder.com/300x200?text=Alisamento" alt="Alisamento" class="card-img">
+                <img src="https://via.placeholder.com/300x200" loading="lazy"?text=Alisamento" alt="Alisamento" class="card-img">
               </div>
               <div class="card-name">Alisamento</div>
               <div class="card-price">R$ 70,00</div>
@@ -325,9 +334,9 @@
           <div class="client-info-section">
             <h3 class="client-info-title">Suas Informações</h3>
             <div class="client-info-form">
-              <input type="text" id="client-name" placeholder="Digite seu nome completo" class="client-input">
-              <input type="email" id="client-email" placeholder="Seu e-mail (opcional)" class="client-input">
-              <input type="tel" id="client-phone" placeholder="Seu telefone (opcional)" class="client-input">
+              <input type="text" id="client-name" placeholder="Digite seu nome completo" class="client-input" aria-label="Nome completo" required>
+              <input type="email" id="client-email" placeholder="Seu e-mail (opcional)" class="client-input" aria-label="E-mail">
+              <input type="tel" id="client-phone" placeholder="Seu telefone (opcional)" class="client-input" aria-label="Telefone">
             </div>
           </div>
 
@@ -378,7 +387,7 @@
         </div>
       </div>
 
-      <button class="btn-confirm animated-button" id="btn-confirm" disabled onclick="confirmSchedule()" style="margin-top: 30px;">
+      <button class="btn-confirm animated-button" id="btn-confirm" disabled onclick="handleConfirm()" style="margin-top: 30px;" aria-label="Confirmar agendamento no WhatsApp">
         <span class="text">CONFIRMAR NO WHATSAPP</span>
         <svg class="arr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         <svg class="arr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -395,32 +404,40 @@
       <h2 class="section-title">Galeria</h2>
       <p class="section-sub">Nossos melhores trabalhos</p>
 
-      <div class="gallery-carousel-wrapper">
-        <div class="gallery-carousel" id="gallery-carousel">
-          <div class="gallery-card">
-            <img src="https://via.placeholder.com/400x400?text=Trabalho+1" alt="Galeria 1" class="gallery-img-real">
-            <div class="gallery-label">Degradê Moderno</div>
-          </div>
-          <div class="gallery-card">
-            <img src="https://via.placeholder.com/400x400?text=Trabalho+2" alt="Galeria 2" class="gallery-img-real">
-            <div class="gallery-label">Barba Alinhada</div>
-          </div>
-          <div class="gallery-card">
-            <img src="https://via.placeholder.com/400x400?text=Trabalho+3" alt="Galeria 3" class="gallery-img-real">
-            <div class="gallery-label">Corte Clássico</div>
-          </div>
-          <div class="gallery-card">
-            <img src="https://via.placeholder.com/400x400?text=Trabalho+4" alt="Galeria 4" class="gallery-img-real">
-            <div class="gallery-label">Navalhado</div>
+      <div class="gallery-3d-wrapper">
+        <div class="gallery-3d-container">
+          <div class="gallery-3d-carousel" id="gallery-3d-carousel">
+            <div class="gallery-3d-face">
+              <img src="https://via.placeholder.com/400x400?text=Trabalho+1" loading="lazy" alt="Galeria 1">
+              <div class="gallery-3d-label">Degradê Moderno</div>
+            </div>
+            <div class="gallery-3d-face">
+              <img src="https://via.placeholder.com/400x400?text=Trabalho+2" loading="lazy" alt="Galeria 2">
+              <div class="gallery-3d-label">Barba Alinhada</div>
+            </div>
+            <div class="gallery-3d-face">
+              <img src="https://via.placeholder.com/400x400?text=Trabalho+3" loading="lazy" alt="Galeria 3">
+              <div class="gallery-3d-label">Corte Clássico</div>
+            </div>
+            <div class="gallery-3d-face">
+              <img src="https://via.placeholder.com/400x400?text=Trabalho+4" loading="lazy" alt="Galeria 4">
+              <div class="gallery-3d-label">Navalhado</div>
+            </div>
+            <div class="gallery-3d-face">
+              <img src="https://via.placeholder.com/400x400?text=Trabalho+5" loading="lazy" alt="Galeria 5">
+              <div class="gallery-3d-label">Fade Premium</div>
+            </div>
+            <div class="gallery-3d-face">
+              <img src="https://via.placeholder.com/400x400?text=Trabalho+6" loading="lazy" alt="Galeria 6">
+              <div class="gallery-3d-label">Undercut</div>
+            </div>
           </div>
         </div>
-        <button class="gallery-nav-btn gallery-prev" onclick="scrollGallery(-1)">❮</button>
-        <button class="gallery-nav-btn gallery-next" onclick="scrollGallery(1)">❯</button>
+        <div class="gallery-3d-controls">
+          <button class="gallery-3d-btn" onclick="rotateCarousel(-1)" aria-label="Imagem anterior">❮</button>
+          <button class="gallery-3d-btn" onclick="rotateCarousel(1)" aria-label="Próxima imagem">❯</button>
+        </div>
       </div>
-
-      <p class="gallery-note">
-        O administrador pode atualizar estas fotos através do painel de controle.
-      </p>
     </div>
   </section>
 
@@ -480,7 +497,7 @@
 
       <div class="barber-card">
         <div class="barber-photo-container glass-card">
-          <img src="https://via.placeholder.com/200x200?text=Barbeiro" alt="João Silva" class="barber-img">
+          <img src="https://via.placeholder.com/200x200?text=Barbeiro" alt="João Silva - Barbeiro" class="barber-img" loading="lazy">
         </div>
         <div class="barber-content">
           <div class="barber-name">João Silva</div>
@@ -536,13 +553,13 @@
   </footer>
 
   <!-- ── MODAL DE LOGIN ── -->
-  <div class="modal-overlay" id="modal">
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
     <div class="modal">
-      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')">×</button>
-      <div class="modal-title">Acesso Administrativo</div>
-      <input class="modal-input" type="email" placeholder="E-mail" />
-      <input class="modal-input" type="password" placeholder="Senha" />
-      <button class="modal-btn">ACESSAR PAINEL</button>
+      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')" aria-label="Fechar">×</button>
+      <div class="modal-title" id="login-title">Acesso Administrativo</div>
+      <input class="modal-input" type="email" id="login-email" placeholder="E-mail" aria-label="E-mail do administrador" autocomplete="email" />
+      <input class="modal-input" type="password" id="login-password" placeholder="Senha" aria-label="Senha" autocomplete="current-password" />
+      <button class="modal-btn" onclick="handleLogin()">ACESSAR PAINEL</button>
     </div>
   </div>
 
@@ -551,21 +568,40 @@
 
   <!-- ── SCRIPTS ── -->
   <script>
-    // ── CARRINHO DE AGENDAMENTO MULTI-SERVIÇO ──
-    let cart = {
-      services: {
-        cortes: null,
-        barbas: null,
-        sobrancelhas: null,
-        bigode: null,
-        pintura: null
-      },
-      clientName: "",
-      clientEmail: "",
-      clientPhone: "",
-      selectedDay: null,
-      selectedTime: null
-    };
+    // ── CARRINHO DE AGENDAMENTO MULTI-SERVIÇO COM localStorage ──
+    const CART_STORAGE_KEY = 'barber_cart';
+
+    function getDefaultCart() {
+      return {
+        services: {
+          cortes: null,
+          barbas: null,
+          sobrancelhas: null,
+          bigode: null,
+          pintura: null
+        },
+        clientName: "",
+        clientEmail: "",
+        clientPhone: "",
+        selectedDay: null,
+        selectedTime: null
+      };
+    }
+
+    function loadCart() {
+      try {
+        const saved = localStorage.getItem(CART_STORAGE_KEY);
+        return saved ? JSON.parse(saved) : getDefaultCart();
+      } catch {
+        return getDefaultCart();
+      }
+    }
+
+    function saveCart() {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    }
+
+    let cart = loadCart();
 
     function toggleCart() {
       const sidebar = document.getElementById('cart-sidebar');
@@ -573,7 +609,6 @@
     }
 
     function addToCart(category, serviceName, price) {
-      // Se já existe um serviço nesta categoria, substitui
       if (cart.services[category]) {
         showToast(`${cart.services[category].name} foi substituído por ${serviceName}!`);
       } else {
@@ -581,6 +616,7 @@
       }
       
       cart.services[category] = { name: serviceName, price: price };
+      saveCart();
       updateCartDisplay();
       updateCartCount();
     }
@@ -613,17 +649,53 @@
     }
 
     function clearCart() {
-      cart.services = {
-        cortes: null,
-        barbas: null,
-        sobrancelhas: null,
-        bigode: null,
-        pintura: null
-      };
+      cart = getDefaultCart();
+      saveCart();
       document.getElementById('cart-count').textContent = '0';
       updateCartDisplay();
       document.getElementById('booking-summary').style.display = 'none';
       showToast('Carrinho limpo!');
+    }
+
+    // ── VALIDAÇÃO DE FORMULÁRIO ──
+    function validateEmail(email) {
+      if (!email) return true;
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function validatePhone(phone) {
+      if (!phone) return true;
+      return phone.replace(/\D/g, '').length >= 10;
+    }
+
+    function validateClientInfo() {
+      const name = document.getElementById('client-name').value.trim();
+      const email = document.getElementById('client-email').value.trim();
+      const phone = document.getElementById('client-phone').value.trim();
+
+      if (!name) {
+        showToast('Por favor, informe seu nome!');
+        document.getElementById('client-name').focus();
+        return false;
+      }
+
+      if (email && !validateEmail(email)) {
+        showToast('Por favor, informe um e-mail válido!');
+        document.getElementById('client-email').focus();
+        return false;
+      }
+
+      if (phone && !validatePhone(phone)) {
+        showToast('Por favor, informe um telefone válido!');
+        document.getElementById('client-phone').focus();
+        return false;
+      }
+
+      cart.clientName = name;
+      cart.clientEmail = email;
+      cart.clientPhone = phone;
+      saveCart();
+      return true;
     }
 
     // ── TABS ──
@@ -730,6 +802,11 @@
       document.getElementById('booking-summary').style.display = 'block';
     }
 
+    function handleConfirm() {
+      if (!validateClientInfo()) return;
+      confirmSchedule();
+    }
+
     function confirmSchedule() {
       const clientName = document.getElementById('client-name').value;
       if (!clientName) {
@@ -782,45 +859,87 @@
       setTimeout(() => t.classList.remove('show'), 3000);
     }
 
-    // ── CARROSSEL DA GALERIA ──
-    let galleryAutoPlayInterval;
-    const galleryCarousel = document.getElementById('gallery-carousel');
+    // ── CARROSSEL 3D DA GALERIA ──
+    let currentAngle = 0;
+    let autoPlayInterval;
+    const carousel3D = document.getElementById('gallery-3d-carousel');
+    const faces = carousel3D ? carousel3D.querySelectorAll('.gallery-3d-face') : [];
+    const totalFaces = faces.length;
+    const angleStep = 360 / totalFaces;
 
-    function scrollGallery(direction) {
-      const carousel = document.getElementById('gallery-carousel');
-      const scrollAmount = 350;
-      carousel.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-      });
-      stopGalleryAutoPlay();
+    function updateCarousel3D() {
+      if (carousel3D) {
+        const innerAngle = currentAngle % 360;
+        faces.forEach((face, index) => {
+          const faceAngle = innerAngle + (index * angleStep);
+          face.style.transform = `rotateY(${faceAngle}deg) translateZ(380px)`;
+        });
+      }
     }
 
-    function startGalleryAutoPlay() {
-      galleryAutoPlayInterval = setInterval(() => {
-        if (galleryCarousel) {
-          if (galleryCarousel.scrollLeft + galleryCarousel.clientWidth >= galleryCarousel.scrollWidth - 10) {
-            galleryCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            galleryCarousel.scrollBy({ left: 350, behavior: 'smooth' });
-          }
-        }
+    function rotateCarousel(direction) {
+      currentAngle -= direction * angleStep;
+      if (carousel3D) {
+        carousel3D.style.transform = `rotateY(${currentAngle}deg)`;
+      }
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        rotateCarousel(-1);
       }, 4000);
     }
 
-    function stopGalleryAutoPlay() {
-      clearInterval(galleryAutoPlayInterval);
-      setTimeout(startGalleryAutoPlay, 10000);
+    function stopAutoPlay() {
+      clearInterval(autoPlayInterval);
     }
 
-    if (galleryCarousel) {
-      galleryCarousel.addEventListener('wheel', stopGalleryAutoPlay);
-      galleryCarousel.addEventListener('touchstart', stopGalleryAutoPlay);
+    if (carousel3D && faces.length) {
+      updateCarousel3D();
+      startAutoPlay();
+      carousel3D.addEventListener('mouseenter', stopAutoPlay);
+      carousel3D.addEventListener('mouseleave', startAutoPlay);
     }
+
+    // ── LOGIN ──
+    function handleLogin() {
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      if (!email || !password) {
+        showToast('Preencha e-mail e senha!');
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        showToast('Informe um e-mail válido!');
+        return;
+      }
+
+      // Simulação - em produção, chamar API
+      if (email === 'admin@barbershop.com' && password === 'admin123') {
+        localStorage.setItem('admin_logged', 'true');
+        document.getElementById('modal').classList.remove('show');
+        showToast('Login realizado com sucesso!');
+        window.location.href = 'admin.html';
+      } else {
+        showToast('Credenciais inválidas!');
+      }
+    }
+
+    // Enter para login
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && document.getElementById('modal').classList.contains('show')) {
+        handleLogin();
+      }
+    });
 
     // Inicializa o grid
     buildGrid('seg');
-    startGalleryAutoPlay();
+    updateCartCount();
+    updateCartDisplay();
   </script>
 </body>
 </html>
